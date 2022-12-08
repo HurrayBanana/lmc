@@ -1,0 +1,40 @@
+SImple version works only with +ve numbers 
+
+A Multiply by B 
+
+        LDA ZERO     //INITIALISE TOTAL TO ZERO 
+        STA TOTAL 
+
+        INP          //GET FIRST NUMBER 
+        ADD ONE      //INCREASE BY ONE SO WE MULTIPLY FROM ZERO IN LOOP COUNT 
+        STA A        //AND STORE, THIS WILL BE LOOP COUNTER 
+
+        INP          //GET NUMBER TO MULTIPLY BY FIRST 
+        STA B        //AND STORE 
+
+LOOP    LDA A        //GET COUNTER 
+        SUB ONE      //SUBTRACT ONE FROM COUNTER 
+        STA A        //STORE NEW COUNTER 
+        BRZ DONE     //IF ZERO WE HAVE FINISHED 
+
+        LDA TOTAL    //LOAD CURRENT TOTAL 
+        ADD B        //AND ADD ANOTHER B 
+        STA TOTAL    //STORE CURRENT TOTAL 
+
+        BRA LOOP     //GO BACK AND SEE IF WE NEED TO ADD AGAIN 
+
+DONE    LDA TOTAL    //GET TOTAL 
+        OUT          //AND OUTPUT AS A NUMEBR 
+        HLT          //STOP FETCH EXECUTE CYCLE 
+
+TOTAL   DAT 0        //HOLDS TOTAL OF MULITPLICATION 
+ZERO    DAT 0        //HOLDS A ZERO VALUE 
+ONE     DAT 1        //HOLDS A 1 VALUE FOR DECREMENTING 
+A       DAT 0        //HOLDS 1ST NUMBER (LOOP COUNTER) 
+B       DAT 0        //HOLDS 2ND NUMBER WHICH WE REPEATIDLY ADD 
+
+
+
+ 
+
+ 
